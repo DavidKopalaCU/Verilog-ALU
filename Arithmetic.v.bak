@@ -1,0 +1,57 @@
+module half_adder (
+	input 	x,
+	input		y,
+	
+	output	s,
+	output	c
+);
+
+assign s = x ^ y;
+assign c = x & y;
+
+endmodule
+
+
+module full_adder (
+	input 	x,
+	input 	y,
+	input		c_in,
+	
+	output	c_out,
+	output	s_out
+);
+
+wire s_i;
+wire c_i_1;
+wire c_i_2;
+
+half_adder h_a_1(x, y, s_i, c_i_1);
+half_adder h_a_2(c_in, s_i, s_out);
+assign c_out = c_i_1 | c_i_2;
+
+endmodule
+
+
+module ripple_carry_adder (
+	input		[3:0]		x,
+	input		[3:0]		y,
+	
+	output	[3:0]		result,
+	output				carry
+);
+
+wire [4:0] inter_carries = 5'b0;
+
+generate
+	genvar i;
+	for (i = 0; i < 3; i = i + 1)
+		begin : gen1
+			full_adder f_a(x[i], y[i], inter_carries[i], result[i], inter_carries[i+1]);
+		end
+//	end
+endgenerate
+
+assign carry = inter_carries[4];
+
+endmodule
+

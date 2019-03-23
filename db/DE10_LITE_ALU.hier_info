@@ -1,0 +1,474 @@
+|DE10_LITE_ALU
+ADC_CLK_10 => ~NO_FANOUT~
+MAX10_CLK1_50 => ~NO_FANOUT~
+MAX10_CLK2_50 => ~NO_FANOUT~
+HEX0[0] << <GND>
+HEX0[1] << <GND>
+HEX0[2] << <GND>
+HEX0[3] << <GND>
+HEX0[4] << <GND>
+HEX0[5] << <GND>
+HEX0[6] << <GND>
+HEX0[7] << <GND>
+HEX1[0] << <GND>
+HEX1[1] << <GND>
+HEX1[2] << <GND>
+HEX1[3] << <GND>
+HEX1[4] << <GND>
+HEX1[5] << <GND>
+HEX1[6] << <GND>
+HEX1[7] << <GND>
+HEX2[0] << <GND>
+HEX2[1] << <GND>
+HEX2[2] << <GND>
+HEX2[3] << <GND>
+HEX2[4] << <GND>
+HEX2[5] << <GND>
+HEX2[6] << <GND>
+HEX2[7] << <GND>
+HEX3[0] << <GND>
+HEX3[1] << <GND>
+HEX3[2] << <GND>
+HEX3[3] << <GND>
+HEX3[4] << <GND>
+HEX3[5] << <GND>
+HEX3[6] << <GND>
+HEX3[7] << <GND>
+HEX4[0] << <GND>
+HEX4[1] << <GND>
+HEX4[2] << <GND>
+HEX4[3] << <GND>
+HEX4[4] << <GND>
+HEX4[5] << <GND>
+HEX4[6] << <GND>
+HEX4[7] << <GND>
+HEX5[0] << <GND>
+HEX5[1] << <GND>
+HEX5[2] << <GND>
+HEX5[3] << <GND>
+HEX5[4] << <GND>
+HEX5[5] << <GND>
+HEX5[6] << <GND>
+HEX5[7] << <GND>
+KEY[0] => ~NO_FANOUT~
+KEY[1] => ~NO_FANOUT~
+LEDR[0] << multiply_m:m.port2
+LEDR[1] << multiply_m:m.port2
+LEDR[2] << multiply_m:m.port2
+LEDR[3] << multiply_m:m.port2
+LEDR[4] << multiply_m:m.port2
+LEDR[5] << multiply_m:m.port2
+LEDR[6] << multiply_m:m.port2
+LEDR[7] << multiply_m:m.port2
+LEDR[8] << multiply_m:m.port2
+LEDR[9] << <GND>
+SW[0] => SW[0].IN1
+SW[1] => SW[1].IN1
+SW[2] => SW[2].IN1
+SW[3] => SW[3].IN1
+SW[4] => SW[4].IN1
+SW[5] => SW[5].IN1
+SW[6] => SW[6].IN1
+SW[7] => SW[7].IN1
+SW[8] => ~NO_FANOUT~
+SW[9] => ~NO_FANOUT~
+
+
+|DE10_LITE_ALU|multiply_m:m
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[0] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[1] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+a[2] => comb.IN0
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[0] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[1] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[2] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+b[3] => comb.IN1
+b[4] => comb.IN1
+b[4] => comb.IN1
+b[4] => comb.IN1
+b[5] => comb.IN1
+b[5] => comb.IN1
+b[5] => comb.IN1
+b[6] => comb.IN1
+b[6] => comb.IN1
+b[6] => comb.IN1
+b[7] => comb.IN1
+b[7] => comb.IN1
+b[7] => comb.IN1
+out[0] <= full_adder:for_1[0].out_add.port4
+out[1] <= full_adder:for_1[1].out_add.port4
+out[2] <= full_adder:for_1[2].out_add.port4
+out[3] <= full_adder:for_1[3].out_add.port4
+out[4] <= full_adder:for_1[4].out_add.port4
+out[5] <= full_adder:for_1[5].out_add.port4
+out[6] <= full_adder:for_1[6].out_add.port4
+out[7] <= full_adder:for_1[7].out_add.port4
+out[8] <= full_adder:for_1[7].for_2[1].full_add.port4
+out[9] <= full_adder:for_1[7].for_2[2].full_add.port4
+out[10] <= full_adder:for_1[7].for_2[2].full_add.port3
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[0].out_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[0].for_2[1].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[0].for_2[2].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[1].out_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[1].for_2[1].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[1].for_2[2].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[2].out_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[2].for_2[1].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[2].for_2[2].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[3].out_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[3].for_2[1].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[3].for_2[2].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[4].out_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[4].for_2[1].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[4].for_2[2].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[5].out_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[5].for_2[1].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[5].for_2[2].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[6].out_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[6].for_2[1].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[6].for_2[2].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[7].out_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[7].for_2[1].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|DE10_LITE_ALU|multiply_m:m|full_adder:for_1[7].for_2[2].full_add
+x => s_out.IN0
+x => c_out.IN0
+x => c_out.IN0
+y => s_out.IN1
+y => c_out.IN1
+y => c_out.IN0
+c_in => s_out.IN1
+c_in => c_out.IN1
+c_in => c_out.IN1
+c_out <= c_out.DB_MAX_OUTPUT_PORT_TYPE
+s_out <= s_out.DB_MAX_OUTPUT_PORT_TYPE
+
+
