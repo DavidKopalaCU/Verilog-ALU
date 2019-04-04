@@ -12,38 +12,45 @@
 # 
 # vlog -vlog01compat -work work +incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1 {Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:30:14 on Mar 22,2019
+# Start time: 11:30:30 on Mar 29,2019
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1" Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v 
-# -- Compiling module half_adder
 # -- Compiling module full_adder
 # -- Compiling module ripple_carry_adder
-# -- Compiling module multiply_m
+# -- Compiling module subtract
+# -- Compiling module multiply_by_2
+# -- Compiling module divide_by_2
+# -- Compiling module multiply
 # 
 # Top level modules:
-# 	half_adder
 # 	ripple_carry_adder
-# 	multiply_m
-# End time: 18:30:14 on Mar 22,2019, Elapsed time: 0:00:00
+# 	subtract
+# 	multiply_by_2
+# 	divide_by_2
+# 	multiply
+# End time: 11:30:30 on Mar 29,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1 {Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v}
+# vlog -vlog01compat -work work +incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1 {Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:30:14 on Mar 22,2019
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1" Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v 
-# -- Compiling module DE10_LITE_ALU
+# Start time: 11:30:30 on Mar 29,2019
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1" Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v 
+# -- Compiling module seven_segment
 # 
 # Top level modules:
-# 	DE10_LITE_ALU
-# End time: 18:30:14 on Mar 22,2019, Elapsed time: 0:00:00
+# 	seven_segment
+# End time: 11:30:30 on Mar 29,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# 
-vsim rtl_work.multiply_m
-# vsim rtl_work.multiply_m 
-# Start time: 18:30:23 on Mar 22,2019
-# Loading rtl_work.multiply_m
-# Loading rtl_work.full_adder
-add wave -position end sim:/multiply_m/*
-force -freeze sim:/multiply_m/a 1 0
-force -freeze sim:/multiply_m/b 11111111 0
-run
-# End time: 18:30:44 on Mar 22,2019, Elapsed time: 0:00:21
-# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1 {Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Comparison.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:30:30 on Mar 29,2019
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1" Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Comparison.v 
+# -- Compiling module equal
+# ** Error: (vlog-13025) Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Comparison.v(8): near ":": Syntax error. Statement labels are only allowed in SystemVerilog.
+# ** Error: (vlog-13025) Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Comparison.v(31): near ":": Syntax error. Statement labels are only allowed in SystemVerilog.
+# ** Error: (vlog-13025) Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Comparison.v(54): near ":": Syntax error. Statement labels are only allowed in SystemVerilog.
+# End time: 11:30:30 on Mar 29,2019, Elapsed time: 0:00:00
+# Errors: 3, Warnings: 0
+# ** Error: C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./DE10_LITE_ALU_run_msim_rtl_verilog.do line 10
+# C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -vlog01compat -work work +incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1 {Z:/Documents/CUBoulder/2019_Spring/ECEN2350-D..."

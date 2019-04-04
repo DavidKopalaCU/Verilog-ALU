@@ -40,7 +40,7 @@ module DE10_LITE_ALU(
 //wire carry_out = LEDR[4];
 
 //ripple_carry_adder adder_1(4'd1, 4'd2, { LEDR[3], LEDR[2], LEDR[1], LEDR[0] }, LEDR[4] );
-multiply_m m(SW[3:0], SW[7:4], LEDR[8:0]);
+//multiply m(SW[3:0], SW[7:4], LEDR[8:0]);
 
 //$display({ LEDR[3], LEDR[2], LEDR[1], LEDR[0] });
 
@@ -49,6 +49,86 @@ multiply_m m(SW[3:0], SW[7:4], LEDR[8:0]);
 //  Structural coding
 //=======================================================
 
+
+//wire [1:0] a;
+//wire [1:0] b;
+//
+//assign a = 2'b0;
+
+reg [1:0] a;
+wire [3:0] a_store;
+assign a_store[3:2] = 2'b0;
+assign a_store[1:0] = a;
+always @(negedge KEY[0])
+begin
+	
+	a = a + 1;
+	
+end
+
+reg [1:0] b;
+wire [3:0] b_store;
+assign b_store[3:2] = 2'b0;
+assign b_store[1:0] = b;
+always @(negedge KEY[1])
+begin
+	
+	b = b + 1;
+	
+end
+
+reg [31:0] clk_cnt;
+always @(posedge MAX10_CLK2_50)
+begin
+
+	clk_cnt <= clk_cnt + 1;
+	
+end // always_clk
+
+
+seven_segment a_seg(
+	a_store + 1,
+	0,
+	HEX5
+);
+
+seven_segment b_seg(
+	b_store + 1,
+	0,
+	HEX4
+);
+
+
+main m(
+	a,
+	b,
+	HEX1,
+	HEX0,
+	LEDR,
+	SW,
+	clk_cnt
+);
+
+assign HEX3 = 8'hff;
+assign HEX2 = 8'hff;
+
+//seven_segment s1(
+//	4'd13,
+//	0,
+//	HEX5
+//);
+//
+//seven_segment s2(
+//	4'd14,
+//	0,
+//	HEX4
+//);
+//
+//seven_segment s3(
+//	4'd15,
+//	0,
+//	HEX3
+//);
 
 
 endmodule

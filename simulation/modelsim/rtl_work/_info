@@ -8,114 +8,157 @@ z2
 !i10f 100
 cModel Technology
 Z0 dZ:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/simulation/modelsim
-vDE10_LITE_ALU
-Z1 !s110 1553301014
+vdivide_by_2
+Z1 !s110 1553880630
 !i10b 1
-!s100 RFFPjTi397`>RenjD:Lag1
-IfP8A><5XTBiQz88YaXL1m3
+!s100 8cNZeOaBMTcJ;dRU@SnP?1
+Izo5<YcNdQ<:>NIS2]Nl0D3
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1553317293
-8Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v
-FZ:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v
-L0 6
-Z3 OV;L;10.5b;63
+Z3 w1553828984
+Z4 8Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v
+Z5 FZ:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v
+L0 95
+Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1553301014.000000
-!s107 Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1|Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v|
+Z7 !s108 1553880630.000000
+Z8 !s107 Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1|Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v|
 !i113 1
-Z5 o-vlog01compat -work work
-Z6 !s92 -vlog01compat -work work +incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1
-Z7 tCvgOpt 0
-n@d@e10_@l@i@t@e_@a@l@u
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1
+Z12 tCvgOpt 0
 vfull_adder
 R1
 !i10b 1
-!s100 8I?3PZkHFh:NRoMP:zj0z0
-IjiH0;7@5R0XMV<0?jQ`;33
+!s100 @9ah=D[E8k^jY5bnTh>WB2
+IHDLFPaiU;7W3afJmLVk871
 R2
 R0
-Z8 w1553322557
-Z9 8Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v
-Z10 FZ:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v
-L0 15
 R3
+R4
+R5
+L0 17
+R6
 r1
 !s85 0
 31
-R4
-Z11 !s107 Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v|
-Z12 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1|Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v|
-!i113 1
-R5
-R6
 R7
-vhalf_adder
-R1
-!i10b 1
-!s100 T;=gl45Ab`:`>MO4K]3<d3
-InU03df8::;1z8n:ZARE4A3
-R2
-R0
 R8
 R9
+!i113 1
 R10
-L0 1
-R3
-r1
-!s85 0
-31
-R4
 R11
 R12
-!i113 1
-R5
-R6
-R7
-vmultiply_m
+vmultiply
 R1
 !i10b 1
-!s100 5lL:zVOI<dXmB4LzVK0TU1
-IV59@05DWhJXG91m71hOZ:3
+!s100 <mDdNJ5j`iA2H7nkWbXck2
+ID]ZnEEAm@M7Kom7z3fj123
 R2
 R0
-R8
-R9
-R10
-L0 54
 R3
+R4
+R5
+L0 108
+R6
 r1
 !s85 0
 31
-R4
+R7
+R8
+R9
+!i113 1
+R10
 R11
 R12
-!i113 1
+vmultiply_by_2
+R1
+!i10b 1
+!s100 AmzeVeI^gOMhK]>A^mMD>2
+I8WA77=KbgzeTNPNjG2d;03
+R2
+R0
+R3
+R4
 R5
+L0 82
 R6
+r1
+!s85 0
+31
 R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
 vripple_carry_adder
 R1
 !i10b 1
-!s100 fW5Nzn1S31kAWcHk9[Bzg2
-I9GTC^K`[<;WbD3f7L<gNB2
+!s100 1e4>=iLa>UOzPCA3l0ffZ1
+IiHbGoF>L[4gITLoAoXO3f3
 R2
 R0
-R8
-R9
-R10
-L0 30
 R3
+R4
+R5
+L0 32
+R6
 r1
 !s85 0
 31
-R4
+R7
+R8
+R9
+!i113 1
+R10
 R11
 R12
-!i113 1
-R5
+vseven_segment
+R1
+!i10b 1
+!s100 BlcOKA93EXZCi8DiXV@GI0
+IH_DBSGFG;fZla:SVG`YBO1
+R2
+R0
+w1553879108
+8Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v
+FZ:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v
+L0 6
 R6
+r1
+!s85 0
+31
 R7
+!s107 Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1|Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v|
+!i113 1
+R10
+R11
+R12
+vsubtract
+R1
+!i10b 1
+!s100 =lf@]lf>KNFPDE8^84JZ53
+I9KAd08N^8bz;OI`lR:D:K1
+R2
+R0
+R3
+R4
+R5
+L0 70
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12

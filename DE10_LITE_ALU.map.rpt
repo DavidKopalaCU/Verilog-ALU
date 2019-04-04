@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE10_LITE_ALU
-Sat Mar 23 00:29:40 2019
+Wed Apr 03 19:43:05 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,22 +13,23 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Parameter Settings for User Entity Instance: multiply_m:m
- 10. Port Connectivity Checks: "multiply_m:m|full_adder:for_1[7].out_add"
- 11. Port Connectivity Checks: "multiply_m:m|full_adder:for_1[6].out_add"
- 12. Port Connectivity Checks: "multiply_m:m|full_adder:for_1[5].out_add"
- 13. Port Connectivity Checks: "multiply_m:m|full_adder:for_1[4].out_add"
- 14. Port Connectivity Checks: "multiply_m:m|full_adder:for_1[3].out_add"
- 15. Port Connectivity Checks: "multiply_m:m|full_adder:for_1[2].out_add"
- 16. Port Connectivity Checks: "multiply_m:m|full_adder:for_1[1].out_add"
- 17. Port Connectivity Checks: "multiply_m:m|full_adder:for_1[0].for_2[2].full_add"
- 18. Port Connectivity Checks: "multiply_m:m|full_adder:for_1[0].for_2[1].full_add"
- 19. Port Connectivity Checks: "multiply_m:m|full_adder:for_1[0].out_add"
- 20. Port Connectivity Checks: "multiply_m:m"
+  8. User-Specified and Inferred Latches
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: main:m|arithmetic_mux:am|ripple_carry_adder:adder
+ 13. Parameter Settings for User Entity Instance: main:m|arithmetic_mux:am|subtract:sub
+ 14. Parameter Settings for User Entity Instance: main:m|arithmetic_mux:am|subtract:sub|ripple_carry_adder:adder
+ 15. Port Connectivity Checks: "main:m|seven_segment:s2"
+ 16. Port Connectivity Checks: "main:m|seven_segment:s1"
+ 17. Port Connectivity Checks: "main:m|arithmetic_mux:am|subtract:sub|ripple_carry_adder:adder"
+ 18. Port Connectivity Checks: "main:m|arithmetic_mux:am|ripple_carry_adder:adder|full_adder:gen1[0].f_a"
+ 19. Port Connectivity Checks: "seven_segment:b_seg"
+ 20. Port Connectivity Checks: "seven_segment:a_seg"
  21. Post-Synthesis Netlist Statistics for Top Partition
  22. Elapsed Time Per Partition
  23. Analysis & Synthesis Messages
+ 24. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -54,15 +55,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Mar 23 00:29:40 2019       ;
+; Analysis & Synthesis Status        ; Successful - Wed Apr 03 19:43:05 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; DE10_LITE_ALU                               ;
 ; Top-level Entity Name              ; DE10_LITE_ALU                               ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 24                                          ;
-;     Total combinational functions  ; 24                                          ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
+; Total logic elements               ; 132                                         ;
+;     Total combinational functions  ; 132                                         ;
+;     Dedicated logic registers      ; 36                                          ;
+; Total registers                    ; 36                                          ;
 ; Total pins                         ; 73                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -168,10 +169,11 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -181,59 +183,100 @@ refer to the applicable agreement for further details.
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                      ; Library ;
 +----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
 ; Arithmetic.v                     ; yes             ; User Verilog HDL File        ; Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v    ;         ;
+; SevenSegment.v                   ; yes             ; User Verilog HDL File        ; Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v  ;         ;
+; Comparison.v                     ; yes             ; User Verilog HDL File        ; Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Comparison.v    ;         ;
+; Logical.v                        ; yes             ; User Verilog HDL File        ; Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Logical.v       ;         ;
+; Multiplexer.v                    ; yes             ; User Verilog HDL File        ; Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v   ;         ;
+; magic.v                          ; yes             ; User Verilog HDL File        ; Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/magic.v         ;         ;
 ; de10_lite_alu.v                  ; yes             ; Auto-Found Verilog HDL File  ; Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v ;         ;
 +----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimated Total logic elements              ; 24          ;
-;                                             ;             ;
-; Total combinational functions               ; 24          ;
-; Logic element usage by number of LUT inputs ;             ;
-;     -- 4 input functions                    ; 14          ;
-;     -- 3 input functions                    ; 4           ;
-;     -- <=2 input functions                  ; 6           ;
-;                                             ;             ;
-; Logic elements by mode                      ;             ;
-;     -- normal mode                          ; 24          ;
-;     -- arithmetic mode                      ; 0           ;
-;                                             ;             ;
-; Total registers                             ; 0           ;
-;     -- Dedicated logic registers            ; 0           ;
-;     -- I/O registers                        ; 0           ;
-;                                             ;             ;
-; I/O pins                                    ; 73          ;
-;                                             ;             ;
-; Embedded Multiplier 9-bit elements          ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; SW[2]~input ;
-; Maximum fan-out                             ; 9           ;
-; Total fan-out                               ; 160         ;
-; Average fan-out                             ; 0.94        ;
-+---------------------------------------------+-------------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 132   ;
+;                                             ;       ;
+; Total combinational functions               ; 132   ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 72    ;
+;     -- 3 input functions                    ; 23    ;
+;     -- <=2 input functions                  ; 37    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 113   ;
+;     -- arithmetic mode                      ; 19    ;
+;                                             ;       ;
+; Total registers                             ; 36    ;
+;     -- Dedicated logic registers            ; 36    ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 73    ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; b[0]  ;
+; Maximum fan-out                             ; 22    ;
+; Total fan-out                               ; 608   ;
+; Average fan-out                             ; 1.94  ;
++---------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                   ;
-+-----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------+---------------+--------------+
-; Compilation Hierarchy Node                    ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                               ; Entity Name   ; Library Name ;
-+-----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------+---------------+--------------+
-; |DE10_LITE_ALU                                ; 24 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 73   ; 0            ; 0          ; |DE10_LITE_ALU                                                    ; DE10_LITE_ALU ; work         ;
-;    |multiply_m:m|                             ; 24 (6)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|multiply_m:m                                       ; multiply_m    ; work         ;
-;       |full_adder:for_1[1].for_2[1].full_add| ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|multiply_m:m|full_adder:for_1[1].for_2[1].full_add ; full_adder    ; work         ;
-;       |full_adder:for_1[1].out_add|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|multiply_m:m|full_adder:for_1[1].out_add           ; full_adder    ; work         ;
-;       |full_adder:for_1[2].for_2[1].full_add| ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|multiply_m:m|full_adder:for_1[2].for_2[1].full_add ; full_adder    ; work         ;
-;       |full_adder:for_1[2].for_2[2].full_add| ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|multiply_m:m|full_adder:for_1[2].for_2[2].full_add ; full_adder    ; work         ;
-;       |full_adder:for_1[2].out_add|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|multiply_m:m|full_adder:for_1[2].out_add           ; full_adder    ; work         ;
-;       |full_adder:for_1[3].for_2[1].full_add| ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|multiply_m:m|full_adder:for_1[3].for_2[1].full_add ; full_adder    ; work         ;
-;       |full_adder:for_1[3].for_2[2].full_add| ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|multiply_m:m|full_adder:for_1[3].for_2[2].full_add ; full_adder    ; work         ;
-;       |full_adder:for_1[3].out_add|           ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|multiply_m:m|full_adder:for_1[3].out_add           ; full_adder    ; work         ;
-+-----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------+---------------+--------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                     ;
++-----------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                  ; Entity Name        ; Library Name ;
++-----------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------+--------------------+--------------+
+; |DE10_LITE_ALU                          ; 132 (23)            ; 36 (25)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 73   ; 0            ; 0          ; |DE10_LITE_ALU                                                                                       ; DE10_LITE_ALU      ; work         ;
+;    |main:m|                             ; 104 (39)            ; 11 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m                                                                                ; main               ; work         ;
+;       |arithmetic_mux:am|               ; 21 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|arithmetic_mux:am                                                              ; arithmetic_mux     ; work         ;
+;          |ripple_carry_adder:adder|     ; 5 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|arithmetic_mux:am|ripple_carry_adder:adder                                     ; ripple_carry_adder ; work         ;
+;             |full_adder:gen1[0].f_a|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|arithmetic_mux:am|ripple_carry_adder:adder|full_adder:gen1[0].f_a              ; full_adder         ; work         ;
+;             |full_adder:gen1[1].f_a|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|arithmetic_mux:am|ripple_carry_adder:adder|full_adder:gen1[1].f_a              ; full_adder         ; work         ;
+;             |full_adder:gen1[2].f_a|    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|arithmetic_mux:am|ripple_carry_adder:adder|full_adder:gen1[2].f_a              ; full_adder         ; work         ;
+;             |full_adder:gen1[3].f_a|    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|arithmetic_mux:am|ripple_carry_adder:adder|full_adder:gen1[3].f_a              ; full_adder         ; work         ;
+;          |subtract:sub|                 ; 6 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|arithmetic_mux:am|subtract:sub                                                 ; subtract           ; work         ;
+;             |ripple_carry_adder:adder|  ; 5 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|arithmetic_mux:am|subtract:sub|ripple_carry_adder:adder                        ; ripple_carry_adder ; work         ;
+;                |full_adder:gen1[1].f_a| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|arithmetic_mux:am|subtract:sub|ripple_carry_adder:adder|full_adder:gen1[1].f_a ; full_adder         ; work         ;
+;                |full_adder:gen1[2].f_a| ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|arithmetic_mux:am|subtract:sub|ripple_carry_adder:adder|full_adder:gen1[2].f_a ; full_adder         ; work         ;
+;                |full_adder:gen1[3].f_a| ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|arithmetic_mux:am|subtract:sub|ripple_carry_adder:adder|full_adder:gen1[3].f_a ; full_adder         ; work         ;
+;       |comparison_mux:cm|               ; 11 (2)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|comparison_mux:cm                                                              ; comparison_mux     ; work         ;
+;          |equal:eq|                     ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|comparison_mux:cm|equal:eq                                                     ; equal              ; work         ;
+;          |max:max_m|                    ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|comparison_mux:cm|max:max_m                                                    ; max                ; work         ;
+;       |logical_mux:lm|                  ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|logical_mux:lm                                                                 ; logical_mux        ; work         ;
+;       |magic_mode:mm_mux|               ; 18 (18)             ; 11 (11)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|magic_mode:mm_mux                                                              ; magic_mode         ; work         ;
+;       |seven_segment:s1|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|seven_segment:s1                                                               ; seven_segment      ; work         ;
+;       |seven_segment:s2|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|main:m|seven_segment:s2                                                               ; seven_segment      ; work         ;
+;    |seven_segment:a_seg|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|seven_segment:a_seg                                                                   ; seven_segment      ; work         ;
+;    |seven_segment:b_seg|                ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_ALU|seven_segment:b_seg                                                                   ; seven_segment      ; work         ;
++-----------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------------------------------------------------------------------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                        ;
++----------------------------------------------------+------------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal          ; Free of Timing Hazards ;
++----------------------------------------------------+------------------------------+------------------------+
+; main:m|arithmetic_mux:am|out[4]                    ; seven_segment:b_seg|Decoder0 ; yes                    ;
+; main:m|arithmetic_mux:am|out[5]                    ; seven_segment:b_seg|Decoder0 ; yes                    ;
+; main:m|arithmetic_mux:am|out[6]                    ; seven_segment:b_seg|Decoder0 ; yes                    ;
+; main:m|arithmetic_mux:am|out[7]                    ; seven_segment:b_seg|Decoder0 ; yes                    ;
+; Number of user-specified and inferred latches = 4  ;                              ;                        ;
++----------------------------------------------------+------------------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++-------------------------------------------------------------+
+; Registers Removed During Synthesis                          ;
++----------------------------------------+--------------------+
+; Register name                          ; Reason for Removal ;
++----------------------------------------+--------------------+
+; clk_cnt[21..31]                        ; Lost fanout        ;
+; Total Number of Removed Registers = 11 ;                    ;
++----------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -241,7 +284,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 36    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -251,117 +294,105 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+-----------------------------------------------------------+
-; Parameter Settings for User Entity Instance: multiply_m:m ;
-+----------------+-------+----------------------------------+
-; Parameter Name ; Value ; Type                             ;
-+----------------+-------+----------------------------------+
-; n              ; 3     ; Signed Integer                   ;
-; m              ; 8     ; Signed Integer                   ;
-+----------------+-------+----------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |DE10_LITE_ALU|main:m|arithmetic_mux:am|Mux0 ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |DE10_LITE_ALU|main:m|Mux2                   ;
+; 13:1               ; 3 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; No         ; |DE10_LITE_ALU|main:m|Mux7                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: main:m|arithmetic_mux:am|ripple_carry_adder:adder ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                        ;
++----------------+-------+-----------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------+
-; Port Connectivity Checks: "multiply_m:m|full_adder:for_1[7].out_add" ;
-+------+-------+----------+--------------------------------------------+
-; Port ; Type  ; Severity ; Details                                    ;
-+------+-------+----------+--------------------------------------------+
-; c_in ; Input ; Info     ; Stuck at GND                               ;
-+------+-------+----------+--------------------------------------------+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: main:m|arithmetic_mux:am|subtract:sub ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------+
-; Port Connectivity Checks: "multiply_m:m|full_adder:for_1[6].out_add" ;
-+------+-------+----------+--------------------------------------------+
-; Port ; Type  ; Severity ; Details                                    ;
-+------+-------+----------+--------------------------------------------+
-; c_in ; Input ; Info     ; Stuck at GND                               ;
-+------+-------+----------+--------------------------------------------+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: main:m|arithmetic_mux:am|subtract:sub|ripple_carry_adder:adder ;
++----------------+-------+------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                               ;
++----------------+-------+------------------------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                                     ;
++----------------+-------+------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------+
-; Port Connectivity Checks: "multiply_m:m|full_adder:for_1[5].out_add" ;
-+------+-------+----------+--------------------------------------------+
-; Port ; Type  ; Severity ; Details                                    ;
-+------+-------+----------+--------------------------------------------+
-; c_in ; Input ; Info     ; Stuck at GND                               ;
-+------+-------+----------+--------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "main:m|seven_segment:s2"                                                                                                                                                             ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; dec     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; dec[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------+
-; Port Connectivity Checks: "multiply_m:m|full_adder:for_1[4].out_add" ;
-+------+-------+----------+--------------------------------------------+
-; Port ; Type  ; Severity ; Details                                    ;
-+------+-------+----------+--------------------------------------------+
-; c_in ; Input ; Info     ; Stuck at GND                               ;
-+------+-------+----------+--------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "main:m|seven_segment:s1"                                                                                                                                                             ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; dec     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; dec[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------+
-; Port Connectivity Checks: "multiply_m:m|full_adder:for_1[3].out_add" ;
-+------+-------+----------+--------------------------------------------+
-; Port ; Type  ; Severity ; Details                                    ;
-+------+-------+----------+--------------------------------------------+
-; c_in ; Input ; Info     ; Stuck at GND                               ;
-+------+-------+----------+--------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "main:m|arithmetic_mux:am|subtract:sub|ripple_carry_adder:adder"                      ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; carry ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------+
-; Port Connectivity Checks: "multiply_m:m|full_adder:for_1[2].out_add" ;
-+------+-------+----------+--------------------------------------------+
-; Port ; Type  ; Severity ; Details                                    ;
-+------+-------+----------+--------------------------------------------+
-; c_in ; Input ; Info     ; Stuck at GND                               ;
-+------+-------+----------+--------------------------------------------+
++------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "main:m|arithmetic_mux:am|ripple_carry_adder:adder|full_adder:gen1[0].f_a" ;
++------+-------+----------+----------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                    ;
++------+-------+----------+----------------------------------------------------------------------------+
+; c_in ; Input ; Info     ; Stuck at GND                                                               ;
++------+-------+----------+----------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------+
-; Port Connectivity Checks: "multiply_m:m|full_adder:for_1[1].out_add" ;
-+------+-------+----------+--------------------------------------------+
-; Port ; Type  ; Severity ; Details                                    ;
-+------+-------+----------+--------------------------------------------+
-; c_in ; Input ; Info     ; Stuck at GND                               ;
-+------+-------+----------+--------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seven_segment:b_seg"                                                                                                                                                                 ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; hex     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (4 bits) it drives.  The 28 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; dec     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; dec[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------+
-; Port Connectivity Checks: "multiply_m:m|full_adder:for_1[0].for_2[2].full_add" ;
-+------+-------+----------+------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                              ;
-+------+-------+----------+------------------------------------------------------+
-; x    ; Input ; Info     ; Stuck at GND                                         ;
-+------+-------+----------+------------------------------------------------------+
-
-
-+--------------------------------------------------------------------------------+
-; Port Connectivity Checks: "multiply_m:m|full_adder:for_1[0].for_2[1].full_add" ;
-+------+-------+----------+------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                              ;
-+------+-------+----------+------------------------------------------------------+
-; x    ; Input ; Info     ; Stuck at GND                                         ;
-+------+-------+----------+------------------------------------------------------+
-
-
-+----------------------------------------------------------------------+
-; Port Connectivity Checks: "multiply_m:m|full_adder:for_1[0].out_add" ;
-+------+-------+----------+--------------------------------------------+
-; Port ; Type  ; Severity ; Details                                    ;
-+------+-------+----------+--------------------------------------------+
-; x    ; Input ; Info     ; Stuck at GND                               ;
-; c_in ; Input ; Info     ; Stuck at GND                               ;
-+------+-------+----------+--------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "multiply_m:m"                                                                                                                                                                    ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type   ; Severity ; Details                                                                                                                                                                          ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; a    ; Input  ; Warning  ; Input port expression (4 bits) is wider than the input port (3 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; b    ; Input  ; Warning  ; Input port expression (4 bits) is smaller than the input port (8 bits) it drives.  Extra input bit(s) "b[7..4]" will be connected to GND.                                        ;
-; out  ; Output ; Warning  ; Output or bidir port (11 bits) is wider than the port expression (9 bits) it drives; bit(s) "out[10..9]" have no fanouts                                                         ;
-+------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "seven_segment:a_seg"                                                                                                                                                                 ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; hex     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (4 bits) it drives.  The 28 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; dec     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; dec[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -370,15 +401,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 73                          ;
-; cycloneiii_lcell_comb ; 25                          ;
-;     normal            ; 25                          ;
-;         0 data inputs ; 1                           ;
-;         2 data inputs ; 6                           ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 14                          ;
+; cycloneiii_ff         ; 36                          ;
+;     plain             ; 36                          ;
+; cycloneiii_lcell_comb ; 144                         ;
+;     arith             ; 19                          ;
+;         2 data inputs ; 18                          ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 125                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 14                          ;
+;         2 data inputs ; 15                          ;
+;         3 data inputs ; 22                          ;
+;         4 data inputs ; 72                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 5.13                        ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 4.40                        ;
 +-----------------------+-----------------------------+
 
 
@@ -387,7 +424,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -397,103 +434,159 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat Mar 23 00:29:24 2019
+    Info: Processing started: Wed Apr 03 19:42:49 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_LITE_ALU -c DE10_LITE_ALU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
-Info (12021): Found 4 design units, including 4 entities, in source file arithmetic.v
-    Info (12023): Found entity 1: half_adder File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 1
-    Info (12023): Found entity 2: full_adder File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 15
-    Info (12023): Found entity 3: ripple_carry_adder File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 30
-    Info (12023): Found entity 4: multiply_m File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 54
+Info (12021): Found 6 design units, including 6 entities, in source file arithmetic.v
+    Info (12023): Found entity 1: full_adder File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 17
+    Info (12023): Found entity 2: ripple_carry_adder File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 32
+    Info (12023): Found entity 3: subtract File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 70
+    Info (12023): Found entity 4: multiply_by_2 File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 86
+    Info (12023): Found entity 5: divide_by_2 File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 99
+    Info (12023): Found entity 6: multiply File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 112
 Info (12021): Found 1 design units, including 1 entities, in source file sevensegment.v
-    Info (12023): Found entity 1: seven_segment File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 1
-Warning (10236): Verilog HDL Implicit Net warning at Arithmetic.v(106): created implicit net for "wire_add" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 106
+    Info (12023): Found entity 1: seven_segment File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 6
+Info (12021): Found 4 design units, including 4 entities, in source file comparison.v
+    Info (12023): Found entity 1: equal File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Comparison.v Line: 1
+    Info (12023): Found entity 2: greater_than File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Comparison.v Line: 24
+    Info (12023): Found entity 3: less_than File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Comparison.v Line: 47
+    Info (12023): Found entity 4: max File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Comparison.v Line: 72
+Info (12021): Found 4 design units, including 4 entities, in source file logical.v
+    Info (12023): Found entity 1: m_and File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Logical.v Line: 1
+    Info (12023): Found entity 2: m_or File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Logical.v Line: 28
+    Info (12023): Found entity 3: m_xor File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Logical.v Line: 49
+    Info (12023): Found entity 4: m_not File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Logical.v Line: 70
+Info (12021): Found 4 design units, including 4 entities, in source file multiplexer.v
+    Info (12023): Found entity 1: arithmetic_mux File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 2
+    Info (12023): Found entity 2: logical_mux File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 47
+    Info (12023): Found entity 3: comparison_mux File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 78
+    Info (12023): Found entity 4: main File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 124
+Info (12021): Found 1 design units, including 1 entities, in source file magic.v
+    Info (12023): Found entity 1: magic_mode File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/magic.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at Arithmetic.v(80): created implicit net for "carry_out" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 80
+Warning (10236): Verilog HDL Implicit Net warning at Arithmetic.v(162): created implicit net for "wire_add" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 162
 Warning (12125): Using design file de10_lite_alu.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: DE10_LITE_ALU File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 6
 Info (12127): Elaborating entity "DE10_LITE_ALU" for the top level hierarchy
-Warning (10034): Output port "HEX0" at de10_lite_alu.v(14) has no driver File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 14
-Warning (10034): Output port "HEX1" at de10_lite_alu.v(15) has no driver File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 15
-Warning (10034): Output port "HEX2" at de10_lite_alu.v(16) has no driver File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
-Warning (10034): Output port "HEX3" at de10_lite_alu.v(17) has no driver File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
-Warning (10034): Output port "HEX4" at de10_lite_alu.v(18) has no driver File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 18
-Warning (10034): Output port "HEX5" at de10_lite_alu.v(19) has no driver File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 19
-Warning (10034): Output port "LEDR[9]" at de10_lite_alu.v(25) has no driver File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 25
-Info (12128): Elaborating entity "multiply_m" for hierarchy "multiply_m:m" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 43
-Info (12128): Elaborating entity "full_adder" for hierarchy "multiply_m:m|full_adder:for_1[0].out_add" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 98
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (10230): Verilog HDL assignment warning at de10_lite_alu.v(65): truncated value with size 32 to match size of target (2) File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 65
+Warning (10230): Verilog HDL assignment warning at de10_lite_alu.v(76): truncated value with size 32 to match size of target (2) File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 76
+Info (12128): Elaborating entity "seven_segment" for hierarchy "seven_segment:a_seg" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 93
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(15): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 15
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(16): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 16
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(17): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 17
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(18): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 18
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(19): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 19
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(20): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 20
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(21): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 21
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(22): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 22
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(23): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 23
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(24): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 24
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(25): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 25
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(26): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 26
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(27): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 27
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(28): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 28
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(29): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 29
+Warning (10235): Verilog HDL Always Construct warning at SevenSegment.v(30): variable "dec" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/SevenSegment.v Line: 30
+Info (12128): Elaborating entity "main" for hierarchy "main:m" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 110
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(165): variable "am_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 165
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(166): variable "log_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 166
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(167): variable "comp_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 167
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(168): variable "magic_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 168
+Info (12128): Elaborating entity "arithmetic_mux" for hierarchy "main:m|arithmetic_mux:am" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 143
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(28): variable "adder_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 28
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(29): variable "adder_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 29
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(31): variable "sub_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 31
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(33): variable "mult_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 33
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(34): variable "mult_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 34
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(37): variable "div_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 37
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(38): variable "div_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 38
+Warning (10240): Verilog HDL Always Construct warning at Multiplexer.v(25): inferring latch(es) for variable "out", which holds its previous value in one or more paths through the always construct File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 25
+Info (10041): Inferred latch for "out[4]" at Multiplexer.v(25) File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 25
+Info (10041): Inferred latch for "out[5]" at Multiplexer.v(25) File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 25
+Info (10041): Inferred latch for "out[6]" at Multiplexer.v(25) File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 25
+Info (10041): Inferred latch for "out[7]" at Multiplexer.v(25) File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 25
+Info (10041): Inferred latch for "out[8]" at Multiplexer.v(25) File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 25
+Info (12128): Elaborating entity "ripple_carry_adder" for hierarchy "main:m|arithmetic_mux:am|ripple_carry_adder:adder" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 14
+Info (12128): Elaborating entity "full_adder" for hierarchy "main:m|arithmetic_mux:am|ripple_carry_adder:adder|full_adder:gen1[0].f_a" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Arithmetic.v Line: 53
+Info (12128): Elaborating entity "subtract" for hierarchy "main:m|arithmetic_mux:am|subtract:sub" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 17
+Info (12128): Elaborating entity "multiply_by_2" for hierarchy "main:m|arithmetic_mux:am|multiply_by_2:m2" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 20
+Info (12128): Elaborating entity "divide_by_2" for hierarchy "main:m|arithmetic_mux:am|divide_by_2:d2" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 23
+Info (12128): Elaborating entity "logical_mux" for hierarchy "main:m|logical_mux:lm" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 146
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(68): variable "and_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 68
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(69): variable "or_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 69
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(70): variable "x_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 70
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(71): variable "not_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 71
+Info (12128): Elaborating entity "m_and" for hierarchy "main:m|logical_mux:lm|m_and:ad" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 55
+Info (12128): Elaborating entity "m_or" for hierarchy "main:m|logical_mux:lm|m_or:o" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 58
+Info (12128): Elaborating entity "m_xor" for hierarchy "main:m|logical_mux:lm|m_xor:x" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 61
+Info (12128): Elaborating entity "m_not" for hierarchy "main:m|logical_mux:lm|m_not:n" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 64
+Info (12128): Elaborating entity "comparison_mux" for hierarchy "main:m|comparison_mux:cm" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 149
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(99): variable "eq_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 99
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(100): variable "gt_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 100
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(101): variable "lt_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 101
+Warning (10235): Verilog HDL Always Construct warning at Multiplexer.v(102): variable "max_out" is read inside the Always Construct but isn't in the Always Construct's Event Control File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 102
+Info (12128): Elaborating entity "equal" for hierarchy "main:m|comparison_mux:cm|equal:eq" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 86
+Info (12128): Elaborating entity "greater_than" for hierarchy "main:m|comparison_mux:cm|greater_than:gt" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 89
+Info (12128): Elaborating entity "less_than" for hierarchy "main:m|comparison_mux:cm|less_than:lt" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 92
+Info (12128): Elaborating entity "max" for hierarchy "main:m|comparison_mux:cm|max:max_m" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 95
+Info (12128): Elaborating entity "magic_mode" for hierarchy "main:m|magic_mode:mm_mux" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 152
+Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13012): Latch main:m|arithmetic_mux:am|out[4] has unsafe behavior File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 25
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal b[1] File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 73
+Warning (13012): Latch main:m|arithmetic_mux:am|out[5] has unsafe behavior File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 25
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal b[1] File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 73
+Warning (13012): Latch main:m|arithmetic_mux:am|out[6] has unsafe behavior File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 25
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal b[1] File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 73
+Warning (13012): Latch main:m|arithmetic_mux:am|out[7] has unsafe behavior File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/Multiplexer.v Line: 25
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal b[0] File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 73
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 14
-    Warning (13410): Pin "HEX0[1]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 14
-    Warning (13410): Pin "HEX0[2]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 14
-    Warning (13410): Pin "HEX0[3]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 14
-    Warning (13410): Pin "HEX0[4]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 14
-    Warning (13410): Pin "HEX0[5]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 14
-    Warning (13410): Pin "HEX0[6]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 14
-    Warning (13410): Pin "HEX0[7]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 14
-    Warning (13410): Pin "HEX1[0]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 15
-    Warning (13410): Pin "HEX1[1]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 15
-    Warning (13410): Pin "HEX1[2]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 15
-    Warning (13410): Pin "HEX1[3]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 15
-    Warning (13410): Pin "HEX1[4]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 15
-    Warning (13410): Pin "HEX1[5]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 15
-    Warning (13410): Pin "HEX1[6]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 15
-    Warning (13410): Pin "HEX1[7]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 15
-    Warning (13410): Pin "HEX2[0]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
-    Warning (13410): Pin "HEX2[1]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
-    Warning (13410): Pin "HEX2[2]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
-    Warning (13410): Pin "HEX2[3]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
-    Warning (13410): Pin "HEX2[4]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
-    Warning (13410): Pin "HEX2[5]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
-    Warning (13410): Pin "HEX2[6]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
-    Warning (13410): Pin "HEX2[7]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
-    Warning (13410): Pin "HEX3[0]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
-    Warning (13410): Pin "HEX3[1]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
-    Warning (13410): Pin "HEX3[2]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
-    Warning (13410): Pin "HEX3[3]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
-    Warning (13410): Pin "HEX3[4]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
-    Warning (13410): Pin "HEX3[5]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
-    Warning (13410): Pin "HEX3[6]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
-    Warning (13410): Pin "HEX3[7]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
-    Warning (13410): Pin "HEX4[0]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 18
+    Warning (13410): Pin "HEX0[7]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 14
+    Warning (13410): Pin "HEX1[7]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 15
+    Warning (13410): Pin "HEX2[0]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
+    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
+    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
+    Warning (13410): Pin "HEX2[3]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
+    Warning (13410): Pin "HEX2[4]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
+    Warning (13410): Pin "HEX2[5]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
+    Warning (13410): Pin "HEX2[6]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
+    Warning (13410): Pin "HEX2[7]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 16
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
+    Warning (13410): Pin "HEX3[7]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 17
     Warning (13410): Pin "HEX4[1]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 18
-    Warning (13410): Pin "HEX4[2]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 18
-    Warning (13410): Pin "HEX4[3]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 18
-    Warning (13410): Pin "HEX4[4]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 18
-    Warning (13410): Pin "HEX4[5]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 18
-    Warning (13410): Pin "HEX4[6]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 18
-    Warning (13410): Pin "HEX4[7]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 18
-    Warning (13410): Pin "HEX5[0]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 19
+    Warning (13410): Pin "HEX4[7]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 18
     Warning (13410): Pin "HEX5[1]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 19
-    Warning (13410): Pin "HEX5[2]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 19
-    Warning (13410): Pin "HEX5[3]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 19
-    Warning (13410): Pin "HEX5[4]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 19
-    Warning (13410): Pin "HEX5[5]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 19
-    Warning (13410): Pin "HEX5[6]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 19
-    Warning (13410): Pin "HEX5[7]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 19
-    Warning (13410): Pin "LEDR[7]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 25
-    Warning (13410): Pin "LEDR[8]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 25
-    Warning (13410): Pin "LEDR[9]" is stuck at GND File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 25
+    Warning (13410): Pin "HEX5[7]" is stuck at VCC File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 19
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/DE10_LITE_ALU.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 8 input pin(s) that do not drive logic
+Warning (21074): Design contains 4 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "ADC_CLK_10" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 9
     Warning (15610): No output dependent on input pin "MAX10_CLK1_50" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 10
-    Warning (15610): No output dependent on input pin "MAX10_CLK2_50" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 11
-    Warning (15610): No output dependent on input pin "KEY[0]" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 22
-    Warning (15610): No output dependent on input pin "KEY[1]" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 22
-    Warning (15610): No output dependent on input pin "SW[3]" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 29
     Warning (15610): No output dependent on input pin "SW[8]" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 29
     Warning (15610): No output dependent on input pin "SW[9]" File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/de10_lite_alu.v Line: 29
-Info (21057): Implemented 97 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 216 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 15 input pins
     Info (21059): Implemented 58 output pins
-    Info (21061): Implemented 24 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 72 warnings
-    Info: Peak virtual memory: 4749 megabytes
-    Info: Processing ended: Sat Mar 23 00:29:41 2019
-    Info: Elapsed time: 00:00:17
+    Info (21061): Implemented 143 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 79 warnings
+    Info: Peak virtual memory: 4756 megabytes
+    Info: Processing ended: Wed Apr 03 19:43:05 2019
+    Info: Elapsed time: 00:00:16
     Info: Total CPU time (on all processors): 00:00:23
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/DE10_LITE_ALU.map.smsg.
 
 

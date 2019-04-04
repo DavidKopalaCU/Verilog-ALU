@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Sat Mar 23 00:29:40 2019
+Analysis & Synthesis Status : Successful - Wed Apr 03 19:43:05 2019
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : DE10_LITE_ALU
 Top-level Entity Name : DE10_LITE_ALU
 Family : MAX 10
-Total logic elements : 24
-    Total combinational functions : 24
-    Dedicated logic registers : 0
-Total registers : 0
+Total logic elements : 132
+    Total combinational functions : 132
+    Dedicated logic registers : 36
+Total registers : 36
 Total pins : 73
 Total virtual pins : 0
 Total memory bits : 0

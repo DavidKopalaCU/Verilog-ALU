@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at magic.v(8): always construct contains both blocking and non-blocking assignments File: Z:/Documents/CUBoulder/2019_Spring/ECEN2350-DigitalLogic/Project1/magic.v Line: 8
